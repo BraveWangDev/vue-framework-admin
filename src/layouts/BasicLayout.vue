@@ -10,7 +10,8 @@
       </a-layout-header>
       <a-layout-content style="margin: 0 16px">
         <BreadCrumb />
-        <Content />
+        <!-- <Content /> -->
+        <router-view></router-view>
       </a-layout-content>
       <a-layout-footer style="text-align: center">
         <Footer />
@@ -24,7 +25,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import SiderMenu from "./SiderMenu";
 import BreadCrumb from "./BreadCrumb";
-import Content from "./Content";
+// import Content from "./Content";
 
 export default {
   data() {
@@ -36,8 +37,8 @@ export default {
     Header,
     Footer,
     SiderMenu,
-    BreadCrumb,
-    Content
+    BreadCrumb
+    // Content
   }
 };
 </script>
