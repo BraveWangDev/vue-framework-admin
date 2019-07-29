@@ -1,7 +1,7 @@
 <template>
   <a-layout id="components-layout-demo-side" style="min-height: 100vh">
-    <a-layout-sider collapsible v-model="collapsed">
-      <div class="logo" />
+    <a-layout-sider collapsible v-model="collapsed" width="256px">
+      <div class="logo">XX商城后台管理系统</div>
       <SiderMenu />
     </a-layout-sider>
     <a-layout>
@@ -10,7 +10,6 @@
       </a-layout-header>
       <a-layout-content style="margin: 0 16px">
         <BreadCrumb />
-        <!-- <Content /> -->
         <router-view></router-view>
       </a-layout-content>
       <a-layout-footer style="text-align: center">
@@ -44,9 +43,17 @@ export default {
 </script>
 
 <style>
-#components-layout-demo-side .logo {
+/* #components-layout-demo-side .logo {
   height: 32px;
   background: rgba(255, 255, 255, 0.2);
   margin: 16px;
+} */
+.logo {
+  color: #ffffff;
+  font-size: 16px;
+  height: 64px;
+  line-height: 64px;
+  text-align: center;
+  overflow: hidden;
 }
 </style>
