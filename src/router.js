@@ -64,6 +64,7 @@ const router = new Router({
         {
           path: "/order",
           name: "order",
+          redirect: "/order/orderlist",
           meta: { icon: "ordered-list", title: "订单管理" },
           component: { render: h => h("router-view") },
           children: [
@@ -117,20 +118,22 @@ const router = new Router({
         {
           path: "/multiple",
           name: "multiple",
+          redirect: "/multiple/lv1_1",
           meta: { icon: "form", title: "多级菜单" },
           component: () =>
             import(/* webpackChunkName: "multiple" */ "./views/Order/Approval"),
           children: [
             {
-              path: "/order/approval/info",
-              name: "info",
+              path: "/multiple/lv1",
+              name: "lv1",
+              redirect: "/multiple/lv1_1",
               meta: { title: "多级菜单1" },
               component: () =>
                 import(/* webpackChunkName: "multiple" */ "./views/Order/Approval/ApprovalStep1"),
               children: [
                 {
-                  path: "/order/approval/result",
-                  name: "result",
+                  path: "/multiple/lv1_1",
+                  name: "lv1_1",
                   meta: { title: "多级菜单1-1" },
                   component: () =>
                     import(/* webpackChunkName: "multiple" */ "./views/Order/Approval/ApprovalStep3")
@@ -138,8 +141,8 @@ const router = new Router({
               ]
             },
             {
-              path: "/order/approval/confirm",
-              name: "confirm",
+              path: "/multiple/lv2",
+              name: "lv2",
               meta: { title: "多级菜单2" },
               component: () =>
                 import(/* webpackChunkName: "multiple" */ "./views/Order/Approval/ApprovalStep2")

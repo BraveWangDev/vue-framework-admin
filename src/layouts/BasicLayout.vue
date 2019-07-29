@@ -9,7 +9,7 @@
         <Header />
       </a-layout-header>
       <a-layout-content style="margin: 0 16px">
-        <BreadCrumb />
+         <BreadCrumb />
         <router-view></router-view>
       </a-layout-content>
       <a-layout-footer style="text-align: center">
@@ -24,7 +24,6 @@ import Header from "./Header";
 import Footer from "./Footer";
 import SiderMenu from "./SiderMenu";
 import BreadCrumb from "./BreadCrumb";
-// import Content from "./Content";
 
 export default {
   data() {
@@ -37,17 +36,11 @@ export default {
     Footer,
     SiderMenu,
     BreadCrumb
-    // Content
   }
 };
 </script>
 
 <style>
-/* #components-layout-demo-side .logo {
-  height: 32px;
-  background: rgba(255, 255, 255, 0.2);
-  margin: 16px;
-} */
 .logo {
   color: #ffffff;
   font-size: 16px;

@@ -1,12 +1,49 @@
 <template>
-  <a-breadcrumb style="margin: 16px 0">
-    <a-breadcrumb-item>User</a-breadcrumb-item>
-    <a-breadcrumb-item>Bill</a-breadcrumb-item>
+  <a-breadcrumb class="breadcrumb">
+    <a-breadcrumb-item v-for="(item) in breadList" :key="item.name">
+      <router-link
+        v-if="item.name != name"
+        :to="{ path: item.path === '' ? '/' : item.path }"
+      >{{ item.meta.title }}</router-link>
+      <span v-else>{{ item.meta.title }}</span>
+    </a-breadcrumb-item>
   </a-breadcrumb>
 </template>
 
 <script>
-export default {};
+export default {
+  data () {
+    return {
+      name: '',
+      breadList: []
+    }
+  },
+  created () {
+    this.getBreadcrumb()
+  },
+  methods: {
+    getBreadcrumb () {
+      this.name = this.$route.name
+      
+      this.breadList = []
+      this.breadList.push({name: '', path: '/', meta: {title: '首页'}})
+      this.$route.matched.forEach(item => {
+        if(item.path !== ''){
+          this.breadList.push(item)
+        }
+      })
+    }
+  },
+  watch: {
+    $route () {
+      this.getBreadcrumb()
+    }
+  }
+}
 </script>
 
-<style></style>
+<style scoped>
+.breadcrumb {
+  margin: 16px 0
+}
+</style>
