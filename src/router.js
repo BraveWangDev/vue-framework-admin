@@ -44,6 +44,7 @@ const router = new Router({
     },
     {
       path: "/",
+      meta: { title: "首页" },
       component: () =>
         import(/* webpackChunkName: "layout" */ "./layouts/BasicLayout"),
       children: [
