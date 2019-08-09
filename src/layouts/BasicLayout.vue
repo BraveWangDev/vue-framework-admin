@@ -26,6 +26,11 @@ import SiderMenu from "./SiderMenu";
 import BreadCrumb from "./BreadCrumb";
 
 export default {
+  data() {
+    return {
+      collapsed: false
+    };
+  },
   components: {
     Header,
     Footer,
