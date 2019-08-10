@@ -3,6 +3,7 @@ import Router from "vue-router";
 import NotFound from "./views/404";
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
+import { getUserName } from "./utils/localStorage";
 
 Vue.use(Router);
 
@@ -165,7 +166,16 @@ router.beforeEach((to, from, next) => {
   if (to.path !== from.path) {
     NProgress.start();
   }
-  next();
+  if (getUserName() !== null && getUserName() !== "") {
+    next();
+  } else {
+    if (to.path === "/user/login") {
+      next();
+    } else {
+      next({ path: "/user/login" });
+      NProgress.done();
+    }
+  }
 });
 
 router.afterEach(() => {

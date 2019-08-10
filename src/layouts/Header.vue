@@ -11,7 +11,7 @@
             style="backgroundColor:#87d068"
             icon="user"
           />
-          <span>BraveWang</span>
+          <span>{{ nickName }}</span>
         </span>
         <a-menu slot="overlay" class="user-dropdown-menu-wrapper">
           <a-menu-item key="0">
@@ -40,8 +40,18 @@
 </template>
 
 <script>
+import { getNickName, removeUserInfo } from "../utils/localStorage";
+
 export default {
   name: "Header",
+  data() {
+    return {
+      nickName: ""
+    };
+  },
+  mounted() {
+    this.nickName = getNickName();
+  },
   methods: {
     handleLogout() {
       const that = this;
@@ -52,20 +62,19 @@ export default {
         onOk() {
           return new Promise(resolve => {
             setTimeout(() => {
-              that.$message.info("退出登录");
+              removeUserInfo()
               resolve();
             }, 2000);
           })
             .then(() => {
-              // window.location.reload()
-              this.$notification.open({
+              window.location.reload()
+              that.$notification.open({
                 message: "登出提醒",
                 description: "您已成功退出登录",
                 onClick: () => {
                   console.log("退出登录!");
                 }
               });
-              that.$router.replace({ path: "/user/login" });
             })
             .catch(err => {
               that.$message.error({
