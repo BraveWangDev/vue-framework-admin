@@ -61,6 +61,7 @@
 
 <script>
 import { saveUserInfo } from "../../utils/localStorage";
+import { login } from "../../api/login";
 
 export default {
   data() {
@@ -81,29 +82,43 @@ export default {
         validateFieldsKey,
         { force: true },
         async (err, values) => {
+          console.log("打印用户名密码", values);
           if (!err) {
-            return new Promise(resolve => {
-              setTimeout(() => {
-                resolve();
-              }, 2000);
-            })
-              .then(() => {
-                window.location.reload()
-                var userInfo = {
-                  username: "admin",
-                  nickname: "BraveWang"
-                };
-                saveUserInfo(userInfo);
-                this.state.loginBtn = false;
-                this.loginSuccess(userInfo);
-              })
-              .catch(err => {
-                this.state.loginBtn = false;
-                this.$message.error({
-                  title: "错误",
-                  description: err.message
-                });
+            // return new Promise(resolve => {
+            //   setTimeout(() => {
+            //     resolve();
+            //   }, 2000);
+            // })
+            //   .then(() => {
+            //     window.location.reload()
+            //     var userInfo = {
+            //       username: "admin",
+            //       nickname: "BraveWang"
+            //     };
+            //     saveUserInfo(userInfo);
+            //     this.state.loginBtn = false;
+            //     this.loginSuccess(userInfo);
+            //   })
+            //   .catch(err => {
+            //     this.state.loginBtn = false;
+            //     this.$message.error({
+            //       title: "错误",
+            //       description: err.message
+            //     });
+            //   });
+            try {
+              let loginParams = values;
+              let data = await login(loginParams);
+              saveUserInfo(data.resData);
+              this.loginSuccess(data.resData);
+            } catch (error) {
+              this.$message.error({
+                title: "错误",
+                description: err.message
               });
+            } finally {
+              this.state.loginBtn = false;
+            }
           } else {
             setTimeout(() => {
               this.state.loginBtn = false;
@@ -129,8 +144,6 @@ export default {
 #user-login-wrapper {
   width: 400px;
   margin: 0 auto;
-  // height: 250px;
-  // border: 1px solid red;
 
   .user-layout-login {
     button.login-button {

@@ -17,6 +17,10 @@
 
 [一步一步实现中后台管理平台模板-07-完善Header组件](https://blog.csdn.net/ABAP_Brave/article/details/98942173)
 
+[一步一步实现中后台管理平台模板-08-登录页和用户信息保存](https://blog.csdn.net/ABAP_Brave/article/details/99065313)
+
+[一步一步实现中后台管理平台模板-09-封装Axios及本地Mock的配置和使用](https://blog.csdn.net/ABAP_Brave/article/details/99286537)
+
 ## TODO List
  - [x] 项目初始化
  - [x] 添加UI组件库Ant-Design-Vue并实现按需加载
@@ -26,8 +30,9 @@
  - [x] 面包屑与菜单路由联动及跳转
  - [x] 完善Header组件显示个人信息,添加登出功能
  - [x] 登录页+用户信息保存(本地localStorge)
- - [ ] 添加mock功能,实现mock登录信息
- - [ ] 封装Axios,访问登录接口API
+ - [x] 本地Mock的配置和使用:添加mock功能,实现mock登录信息
+ - [x] 封装Axios,访问登录接口API
+ - [ ] 多环境配置,代理配置
  - [ ] 集成Vuex状态管理,保存用户信息到Vuex
  - [ ] 表单
  - [ ] 订单管理-搜索+表格+分页+增删改查
@@ -35,7 +40,6 @@
  - [ ] 权限控制
  - [ ] 响应式
  - [ ] 单元测试
- - [ ] 多环境
 
 ## Project setup
 ```

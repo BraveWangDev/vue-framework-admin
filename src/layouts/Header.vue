@@ -62,12 +62,12 @@ export default {
         onOk() {
           return new Promise(resolve => {
             setTimeout(() => {
-              removeUserInfo()
+              removeUserInfo();
               resolve();
             }, 2000);
           })
             .then(() => {
-              window.location.reload()
+              window.location.reload();
               that.$notification.open({
                 message: "登出提醒",
                 description: "您已成功退出登录",
