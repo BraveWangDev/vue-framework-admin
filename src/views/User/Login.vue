@@ -84,28 +84,6 @@ export default {
         async (err, values) => {
           console.log("打印用户名密码", values);
           if (!err) {
-            // return new Promise(resolve => {
-            //   setTimeout(() => {
-            //     resolve();
-            //   }, 2000);
-            // })
-            //   .then(() => {
-            //     window.location.reload()
-            //     var userInfo = {
-            //       username: "admin",
-            //       nickname: "BraveWang"
-            //     };
-            //     saveUserInfo(userInfo);
-            //     this.state.loginBtn = false;
-            //     this.loginSuccess(userInfo);
-            //   })
-            //   .catch(err => {
-            //     this.state.loginBtn = false;
-            //     this.$message.error({
-            //       title: "错误",
-            //       description: err.message
-            //     });
-            //   });
             try {
               let loginParams = values;
               let data = await login(loginParams);
