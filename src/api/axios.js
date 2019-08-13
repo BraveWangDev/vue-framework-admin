@@ -1,6 +1,13 @@
 import axios from "axios";
 
+console.log(process.env.VUE_APP_PROXY === "true" ? "/api" : process.env.VUE_APP_MOCK === "true" ? "123" : process.env.VUE_APP_BASE_URL);
 const Axios = axios.create({
+  baseURL:
+    process.env.VUE_APP_PROXY === "true"
+      ? "/api"
+      : process.env.VUE_APP_MOCK === "true"
+      ? ""
+      : process.env.VUE_APP_BASE_URL,
   timeout: 10000,
   responseType: "json",
   withCredentials: true, // 是否允许带cookie

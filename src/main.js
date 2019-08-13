@@ -3,7 +3,12 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import VueStorage from "vue-ls";
-import "@/mock/MockConfig";
+
+console.log("mock", process.env.VUE_APP_MOCK);
+if (process.env.VUE_APP_MOCK === "true") {
+  import("@/mock/MockConfig");
+}
+console.log("proxy", process.env.VUE_APP_PROXY);
 
 import {
   Button,
@@ -48,6 +53,11 @@ Vue.prototype.$error = Modal.error;
 Vue.prototype.$warning = Modal.warning;
 Vue.prototype.$message = message;
 Vue.prototype.$notification = notification;
+
+console.log("NODE_ENV", process.env.NODE_ENV);
+console.log("VUE_APP_VERSION", process.env.VUE_APP_VERSION);
+console.log("VUE_APP_ENV_FIELD", process.env.VUE_APP_ENV_FIELD);
+console.log("VUE_APP_PROJECT_NAME", process.env.VUE_APP_PROJECT_NAME);
 
 new Vue({
   router,

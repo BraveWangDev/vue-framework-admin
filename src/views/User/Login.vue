@@ -114,7 +114,7 @@ export default {
             } catch (error) {
               this.$message.error({
                 title: "错误",
-                description: err.message
+                description: error.message
               });
             } finally {
               this.state.loginBtn = false;

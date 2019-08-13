@@ -21,6 +21,8 @@
 
 [一步一步实现中后台管理平台模板-09-封装Axios及本地Mock的配置和使用](https://blog.csdn.net/ABAP_Brave/article/details/99286537)
 
+[一步一步实现中后台管理平台模板-10-项目多环境及proxy代理配置](https://blog.csdn.net/ABAP_Brave/article/details/99299824)
+
 ## TODO List
  - [x] 项目初始化
  - [x] 添加UI组件库Ant-Design-Vue并实现按需加载
@@ -32,7 +34,7 @@
  - [x] 登录页+用户信息保存(本地localStorge)
  - [x] 本地Mock的配置和使用:添加mock功能,实现mock登录信息
  - [x] 封装Axios,访问登录接口API
- - [ ] 多环境配置,代理配置
+ - [x] 多环境配置,代理配置
  - [ ] 集成Vuex状态管理,保存用户信息到Vuex
  - [ ] 表单
  - [ ] 订单管理-搜索+表格+分页+增删改查
