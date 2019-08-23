@@ -11,7 +11,8 @@
             style="backgroundColor:#87d068"
             icon="user"
           />
-          <span>{{ nickName }}</span>
+          <!-- <span>{{ nickName }}</span> -->
+          <span>{{ userInfo.nickname }}</span>
         </span>
         <a-menu slot="overlay" class="user-dropdown-menu-wrapper">
           <a-menu-item key="0">
@@ -40,18 +41,22 @@
 </template>
 
 <script>
-import { getNickName, removeUserInfo } from "../utils/localStorage";
+// import { getNickName, removeUserInfo } from "../utils/localStorage";
+import { mapGetters } from "vuex";
 
 export default {
   name: "Header",
-  data() {
-    return {
-      nickName: ""
-    };
+  // data() {
+  //   return {
+  //     nickName: ""
+  //   };
+  // },
+  computed: {
+    ...mapGetters("user", ["userInfo"])
   },
-  mounted() {
-    this.nickName = getNickName();
-  },
+  // mounted() {
+  //   this.nickName = getNickName();
+  // },
   methods: {
     handleLogout() {
       const that = this;
@@ -60,13 +65,10 @@ export default {
         title: "提示",
         content: "确认要注销登录吗 ?",
         onOk() {
-          return new Promise(resolve => {
-            setTimeout(() => {
-              removeUserInfo();
-              resolve();
-            }, 2000);
-          })
-            .then(() => {
+
+          return that.$store
+            .dispatch("user/Logout")
+            .then(res => {
               window.location.reload();
               that.$notification.open({
                 message: "登出提醒",
@@ -81,7 +83,30 @@ export default {
                 title: "错误",
                 description: err.message
               });
-            });
+            })
+
+          // return new Promise(resolve => {
+          //   setTimeout(() => {
+          //     removeUserInfo();
+          //     resolve();
+          //   }, 2000);
+          // })
+          //   .then(() => {
+          //     window.location.reload();
+          //     that.$notification.open({
+          //       message: "登出提醒",
+          //       description: "您已成功退出登录",
+          //       onClick: () => {
+          //         console.log("退出登录!");
+          //       }
+          //     });
+          //   })
+          //   .catch(err => {
+          //     that.$message.error({
+          //       title: "错误",
+          //       description: err.message
+          //     });
+          //   });
         },
         onCancel() {
           that.$message.info("取消登出操作");

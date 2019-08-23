@@ -60,8 +60,9 @@
 </template>
 
 <script>
-import { saveUserInfo } from "../../utils/localStorage";
-import { login } from "../../api/login";
+// import { saveUserInfo } from "../../utils/localStorage";
+// import { login } from "../../api/login";
+import { mapActions } from 'vuex'
 
 export default {
   data() {
@@ -73,6 +74,7 @@ export default {
     };
   },
   methods: {
+    // ...mapActions("user", ['Login']),
     handleSubmit(e) {
       e.preventDefault();
       this.state.loginBtn = true;
@@ -81,22 +83,31 @@ export default {
       this.form.validateFields(
         validateFieldsKey,
         { force: true },
-        async (err, values) => {
+        (err, values) => {
           console.log("打印用户名密码", values);
           if (!err) {
-            try {
-              let loginParams = values;
-              let data = await login(loginParams);
-              saveUserInfo(data.resData);
-              this.loginSuccess(data.resData);
-            } catch (error) {
-              this.$message.error({
-                title: "错误",
-                description: error.message
+            // try {
+            //   let loginParams = values;
+            //   let data = await login(loginParams);
+            //   saveUserInfo(data.resData);
+            // this.loginSuccess(data.resData);
+            // } catch (error) {
+            //   this.$message.error({
+            //     title: "错误",
+            //     description: error.message
+            //   });
+            // } finally {
+            //   this.state.loginBtn = false;
+            // }
+            const loginParams = { ...values };
+            // Login(loginParams)
+            this.$store
+              .dispatch("user/Login", loginParams)
+              .then(res => this.loginSuccess(res))
+              .catch(err => this.requestFailed(err))
+              .finally(() => {
+                this.state.loginBtn = false;
               });
-            } finally {
-              this.state.loginBtn = false;
-            }
           } else {
             setTimeout(() => {
               this.state.loginBtn = false;
@@ -113,6 +124,12 @@ export default {
           description: res.nickname + " 欢迎回来"
         });
       }, 1000);
+    },
+    requestFailed(err) {
+      this.$message.error({
+        title: "错误",
+        description: err.message
+      });
     }
   }
 };
