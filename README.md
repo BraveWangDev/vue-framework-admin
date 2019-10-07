@@ -27,6 +27,8 @@
 
 [一步一步实现中后台管理平台模板-12-ECharts封装和响应式,刷新问题及vue-echarts的使用](https://blog.csdn.net/ABAP_Brave/article/details/102092006)
 
+[一步一步实现中后台管理平台模板-13-解决IE浏览器兼容性问题](https://blog.csdn.net/ABAP_Brave/article/details/102338689)
+
 ## TODO List
  - [x] 项目初始化
  - [x] 添加UI组件库Ant-Design-Vue并实现按需加载
@@ -42,7 +44,7 @@
  - [x] 集成Vuex状态管理,保存用户信息到Vuex
  - [x] Vuex持久化-vuex-persist
  - [x] ECharts封装和响应式,刷新问题及vue-echarts的使用
- - [ ] IE兼容性
+ - [x] 解决IE浏览器兼容性问题
  - [ ] 编码规范
  - [ ] 单元测试
  - [ ] 自动部署(npm run deploy)

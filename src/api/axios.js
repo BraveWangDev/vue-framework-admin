@@ -16,13 +16,19 @@ const Axios = axios.create({
   }
 });
 
-// 添加请求拦截器
 Axios.interceptors.request.use(
   config => {
+    // 添加时间戳,防止IE浏览器使用缓存
+    if (config.method === "get") {
+      config.params = {
+        t: Date.parse(new Date()) / 1000,
+        ...config.params
+      };
+    }
     return config;
   },
   error => {
-    return Promise.reject(error);
+    return Promise.reject(error.data.error.message);
   }
 );
 
