@@ -3,7 +3,6 @@ import Router from "vue-router";
 import NotFound from "./views/404";
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
-// import { getUserName } from "./utils/localStorage";
 import store from "./store";
 
 Vue.use(Router);
@@ -167,7 +166,6 @@ router.beforeEach((to, from, next) => {
   if (to.path !== from.path) {
     NProgress.start();
   }
-  // if (getUserName() !== null && getUserName() !== "") {
   console.log("store.state.login.isLogin", store.state.login.isLogin);
   console.log("store.state", store.state);
   if (store.state.login.isLogin) {

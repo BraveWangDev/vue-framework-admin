@@ -60,8 +60,6 @@
 </template>
 
 <script>
-// import { saveUserInfo } from "../../utils/localStorage";
-// import { login } from "../../api/login";
 import { mapActions } from 'vuex'
 
 export default {
@@ -86,19 +84,6 @@ export default {
         (err, values) => {
           console.log("打印用户名密码", values);
           if (!err) {
-            // try {
-            //   let loginParams = values;
-            //   let data = await login(loginParams);
-            //   saveUserInfo(data.resData);
-            // this.loginSuccess(data.resData);
-            // } catch (error) {
-            //   this.$message.error({
-            //     title: "错误",
-            //     description: error.message
-            //   });
-            // } finally {
-            //   this.state.loginBtn = false;
-            // }
             const loginParams = { ...values };
             // Login(loginParams)
             this.$store

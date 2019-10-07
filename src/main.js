@@ -23,7 +23,8 @@ import {
   Divider,
   Input,
   Form,
-  notification
+  notification,
+  Card
 } from "ant-design-vue";
 
 Vue.config.productionTip = false;
@@ -45,6 +46,7 @@ Vue.use(Divider);
 Vue.use(Form);
 Vue.use(Input);
 Vue.use(notification);
+Vue.use(Card);
 
 Vue.prototype.$confirm = Modal.confirm;
 Vue.prototype.$info = Modal.info;

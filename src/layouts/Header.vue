@@ -41,22 +41,13 @@
 </template>
 
 <script>
-// import { getNickName, removeUserInfo } from "../utils/localStorage";
 import { mapGetters } from "vuex";
 
 export default {
   name: "Header",
-  // data() {
-  //   return {
-  //     nickName: ""
-  //   };
-  // },
   computed: {
     ...mapGetters("user", ["userInfo"])
   },
-  // mounted() {
-  //   this.nickName = getNickName();
-  // },
   methods: {
     handleLogout() {
       const that = this;
@@ -65,7 +56,6 @@ export default {
         title: "提示",
         content: "确认要注销登录吗 ?",
         onOk() {
-
           return that.$store
             .dispatch("user/Logout")
             .then(res => {
@@ -84,29 +74,6 @@ export default {
                 description: err.message
               });
             })
-
-          // return new Promise(resolve => {
-          //   setTimeout(() => {
-          //     removeUserInfo();
-          //     resolve();
-          //   }, 2000);
-          // })
-          //   .then(() => {
-          //     window.location.reload();
-          //     that.$notification.open({
-          //       message: "登出提醒",
-          //       description: "您已成功退出登录",
-          //       onClick: () => {
-          //         console.log("退出登录!");
-          //       }
-          //     });
-          //   })
-          //   .catch(err => {
-          //     that.$message.error({
-          //       title: "错误",
-          //       description: err.message
-          //     });
-          //   });
         },
         onCancel() {
           that.$message.info("取消登出操作");
