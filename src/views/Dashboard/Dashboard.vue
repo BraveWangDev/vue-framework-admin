@@ -1,30 +1,30 @@
 <template>
   <!-- <div>首页Dashboard仪表盘-单层路由,在菜单显示</div> -->
   <a-card title="首页Dashboard仪表盘-单层路由,在菜单显示">
-    <Chart style="marginTop: 20px; height: 500px" :chartData="chartData" />
-    <v-chart style="marginTop: 20px; height: 500px" :options="polar"/>
+    <Chart style="marginTop: 20px; height: 500px" :chart-data="chartData" />
+    <v-chart style="marginTop: 20px; height: 500px" :options="polar" />
   </a-card>
 </template>
 
 <script>
 import Chart from "../../components/Chart";
 // vue-echarts
-import ECharts from 'vue-echarts'
-import 'echarts/lib/chart/line'
-import 'echarts/lib/component/polar'
+import ECharts from "vue-echarts";
+import "echarts/lib/chart/line";
+import "echarts/lib/component/polar";
 
 export default {
   components: {
     Chart,
-    'v-chart': ECharts
+    "v-chart": ECharts
   },
   name: "Dashboard",
   data() {
-    let data = []
+    let data = [];
     for (let i = 0; i <= 360; i++) {
-        let t = i / 180 * Math.PI
-        let r = Math.sin(2 * t) * Math.cos(2 * t)
-        data.push([r, i])
+      let t = (i / 180) * Math.PI;
+      let r = Math.sin(2 * t) * Math.cos(2 * t);
+      data.push([r, i]);
     }
 
     return {
@@ -35,22 +35,22 @@ export default {
       },
       polar: {
         title: {
-          text: '极坐标双数值轴'
+          text: "极坐标双数值轴"
         },
         legend: {
-          data: ['line']
+          data: ["line"]
         },
         polar: {
-          center: ['50%', '54%']
+          center: ["50%", "54%"]
         },
         tooltip: {
-          trigger: 'axis',
+          trigger: "axis",
           axisPointer: {
-            type: 'cross'
+            type: "cross"
           }
         },
         angleAxis: {
-          type: 'value',
+          type: "value",
           startAngle: 0
         },
         radiusAxis: {
@@ -58,9 +58,9 @@ export default {
         },
         series: [
           {
-            coordinateSystem: 'polar',
-            name: 'line',
-            type: 'line',
+            coordinateSystem: "polar",
+            name: "line",
+            type: "line",
             showSymbol: false,
             data: data
           }

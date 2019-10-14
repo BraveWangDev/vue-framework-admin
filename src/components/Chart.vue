@@ -9,7 +9,12 @@ import debounce from "lodash/debounce";
 // 引入resize-detector中addListener, removeListener
 import { addListener, removeListener } from "resize-detector";
 export default {
-  props: ["chartData"],
+  props: {
+    chartData: {
+      type: Object,
+      default: () => {}
+    }
+  },
   created() {
     // 设置300ms间隔
     this.resize = debounce(this.resize, 300);
@@ -62,7 +67,7 @@ export default {
             },
             axisLabel: {
               fontSize: 14,
-              color: "#333",
+              color: "#333"
               // formatter: '{value} %'
             },
             splitLine: {
@@ -77,7 +82,7 @@ export default {
             data: this.chartData.quantityArr,
             itemStyle: {
               normal: {
-                color: "#009C82" 
+                color: "#009C82"
               }
             }
           },
@@ -88,20 +93,23 @@ export default {
             yAxisIndex: 1,
             itemStyle: {
               normal: {
-                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                  {
                     offset: 0,
-                    color: 'rgb(255, 204, 102)'
-                }, {
+                    color: "rgb(255, 204, 102)"
+                  },
+                  {
                     offset: 1,
-                    color: 'rgb(255, 153, 51)'
-                }]),
-                label : {
-                    show : true,
-                    position : 'top',
-                    textStyle : {
-                        fontSize : '14',
-                        color: 'rgb(255, 156, 54)',
-                    }
+                    color: "rgb(255, 153, 51)"
+                  }
+                ]),
+                label: {
+                  show: true,
+                  position: "top",
+                  textStyle: {
+                    fontSize: "14",
+                    color: "rgb(255, 156, 54)"
+                  }
                 }
               }
             }
@@ -112,7 +120,7 @@ export default {
     },
     // 重绘chart实例
     resize() {
-      console.log("chart-resize")
+      console.log("chart-resize");
       this.chart.resize();
     }
   },

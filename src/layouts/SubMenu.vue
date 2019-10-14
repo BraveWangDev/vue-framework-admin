@@ -27,6 +27,11 @@
 </template>
 <script>
 export default {
-  props: ["menuInfo"]
+  props: {
+    menuInfo: {
+      type: Array,
+      default: () => {}
+    }
+  }
 };
 </script>

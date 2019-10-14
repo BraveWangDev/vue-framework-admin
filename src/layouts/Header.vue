@@ -73,7 +73,7 @@ export default {
                 title: "错误",
                 description: err.message
               });
-            })
+            });
         },
         onCancel() {
           that.$message.info("取消登出操作");

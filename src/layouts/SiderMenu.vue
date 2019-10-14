@@ -1,8 +1,8 @@
 <template>
   <div style="width: 256px">
     <a-menu
-      :selectedKeys="selectedKeys"
-      :openKeys.sync="openKeys"
+      :selected-keys="selectedKeys"
+      :open-keys.sync="openKeys"
       theme="dark"
       mode="inline"
     >

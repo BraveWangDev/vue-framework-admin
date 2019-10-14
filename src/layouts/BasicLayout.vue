@@ -24,7 +24,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import SiderMenu from "./SiderMenu";
 import BreadCrumb from "./BreadCrumb";
-import { mapState } from 'vuex'
+import { mapState } from "vuex";
 
 export default {
   data() {

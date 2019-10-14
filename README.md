@@ -29,6 +29,8 @@
 
 [一步一步实现中后台管理平台模板-13-解决IE浏览器兼容性问题](https://blog.csdn.net/ABAP_Brave/article/details/102338689)
 
+[一步一步实现中后台管理平台模板-14-Vue开发工具配置和使用Vetur, ESLint, Prettier, StyleLint](https://blog.csdn.net/ABAP_Brave/article/details/102464029)
+
 ## TODO List
  - [x] 项目初始化
  - [x] 添加UI组件库Ant-Design-Vue并实现按需加载
@@ -45,7 +47,7 @@
  - [x] Vuex持久化-vuex-persist
  - [x] ECharts封装和响应式,刷新问题及vue-echarts的使用
  - [x] 解决IE浏览器兼容性问题
- - [ ] 编码规范
+ - [x] 编码规范ESLint + Prettier
  - [ ] 单元测试
  - [ ] 自动部署(npm run deploy)
  - [ ] CI/CD
@@ -90,3 +92,7 @@ npm run test:unit
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### vscode配置
+code->preferences->settings
+参照vscode-setting.json

@@ -48,7 +48,7 @@
         <a-button
           size="large"
           type="primary"
-          htmlType="submit"
+          html-type="submit"
           class="login-button"
           :loading="state.loginBtn"
           :disabled="state.loginBtn"
@@ -60,7 +60,7 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions } from "vuex";
 
 export default {
   data() {
